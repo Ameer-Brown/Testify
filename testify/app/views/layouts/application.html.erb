@@ -3,12 +3,10 @@
 <head>
   <title>Testify</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-    <!-- Need to add bootstrap fonts to asset pipeline -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
   <link href='https://fonts.googleapis.com/css?family=Raleway:500,900,200' rel='stylesheet' type='text/css'>
-
 </head>
 <body>
   <nav class="navbar navbar-inverse navbar-fixed-top">
@@ -27,8 +25,18 @@
         </ul>
       </div>
  </div>
-  <%= yield %>
 
+ <div class="yield-container">
+   <div class="col-sm-12">
+     <% flash.each do |name, msg| %>
+       <div class="alert <% if name=="error" || name=="alert" %> alert-danger <% else %> alert-success <% end %> fade in">
+         <button class="close" data-dismiss="alert">×</button>
+         <%=  msg %>
+       </div>
+     <% end %>
+   </div>
+   <%= yield %>
+ </div>
 
 </body>
 </html>
