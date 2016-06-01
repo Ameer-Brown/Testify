@@ -1,5 +1,8 @@
 class User < ActiveRecord::Base
     has_secure_password
+     has_many :testimonies, dependent: :destroy
+     has_many :comments, dependent: :destroy
+
 
     def self.confirm(params)
         @user = User.find_by(email: params[:email])
