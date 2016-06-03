@@ -28,6 +28,49 @@
     }
 }
 .profile_pic img {
+  margin-top: 17%;
     height: 150px;
     width: 150px;
+}
+.card-image img{
+  -webkit-filter: brightness(60%);
+}
+
+#title_text{
+  color: #579FE3;
+}
+
+.jumbotron {
+  background-image: url('http://i.giphy.com/SotJCbDWOnnWM.gif');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  height: 100vh;
+  margin-top: -20px;
+  margin-bottom: -20px;
+
+}
+
+.container-index{
+  display: block;
+}
+
+
+.welcome_message{
+  // positioning
+  line-height: 100px;
+  margin-top: 100px;
+
+
+  // font
+  color: rgba(255,255,255,0.8) !important;
+  font-weight: bold;
+  font-size: 6vw;
+  text-align: center;
+  font-family: "Muli", sans-serif !important;;
+
+  //border
+  background-color: rgba(0,0,0, 0.6);
+  border-radius: 10px;
+  border: 1px solid white;
 }
