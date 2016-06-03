@@ -1,17 +1,18 @@
-<br>
-<br>
-<br>
+
 <div class="row">
+  <%= form_for(@testimony, :html => {class: "form-horizontal", role: "form"}) do |f| %>
+  <%= f.file_field :picture %>
+  <%= f.submit "Submit", class: "btn btn-primary" %>
+  <% end %>
         <div class="col s12 m7">
           <div id="test_show"  class="card text-center">
-            <div class="card-image">
-              <!-- <img src=""> Change to uploader-->
-              <!-- <span class="card-title"><%= @testimony.title %></span> -->
-            </div>
+
             <div class="card-content">
               <h3><%= @testimony.title %></h3><br>
                <h4><%= @testimony.verse %></h4>
             </div>
+          <div class="card-action">
+            <%= link_to "Delete Testimony", destroy_testimony_path, class: "btn btn-danger", method: :delete, data: {confirm: "Delete #{@testimony.title}?"} %>
           </div>
         </div>
       </div>
