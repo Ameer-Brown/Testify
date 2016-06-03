@@ -1,6 +1,62 @@
-<div id="forms">
-    <div class="container">
-        Welcome,
-        <%= @user.first_name %>
-    </div>
-</div>
+  <br>
+  <br>
+  <br>
+    <!--User Header-->
+    <header>
+      <div class="header-content">
+        <div class="header-content-inner">
+        </div>
+      </div>
+    </header>
+    <!--end User Header-->
+
+    <section id="user_itin">
+      <div class="container">
+        <!--beginning of profile section-->
+        <div class="row">
+          <div class="col-md-4 text-center">
+            <div class="profile_pic">
+              <%= image_tag @user.avatar, :class => "img-circle center-block" %>
+            </div>
+            <p>
+              <br>
+              First Name: <%= @user.first_name %>
+              <br>
+              Last Name: <%= @user.last_name %>
+              <br>
+              Email: <%= @user.email %>
+              <br>
+              Joined: <%= @user.created_at.strftime("%-m-%-d-%Y") %>
+            </p>
+            <% isAuthor = allowed?(@user.id) %>
+            <% if isAuthor %>
+              <%= link_to "Edit", edit_user_path(@user), class: "btn btn-primary" %>
+              <%= link_to "Add Testimony", new_testimony_path, class: "btn btn-primary" %>
+            <% end %>
+          </div>
+        <!--end of profile section-->
+
+        <!--beginning of itinerary posts-->
+        <div class="col-md-8">
+          <div class="row text-center">
+            <h2>Testimonies</h2>
+          </div>
+          <div class="row" style="overflow:scroll; height:550px;">
+            <!--********LOOP THROUGH USER Testimony****************-->
+            <% @user.testimonies.each do |t| %>
+              <div id="test_name" class="card">
+                <h4>
+                  <%= link_to "#{t.title}", testimony_path(t.id) %>
+                </h4>
+              </div>
+              <div id="itin_desc" class="card-content">
+                <h5><%= t.verse %></h5>
+              </div>
+              <br>
+              <% end %>
+            <!--********CLOSE TESTIMONY LOOP****************-->
+            </div>
+          </div> <!--closes col-md-8-->
+        </div><!--closes row-->
+      </div> <!--closes container-->
+    </section><!--closes section-->

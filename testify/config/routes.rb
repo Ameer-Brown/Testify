@@ -14,7 +14,7 @@ Rails.application.routes.draw do
   # method    path                      controller#action           alias
 
   #change naming of search#
-  get         'testimonies/search',           to: 'testimonies#search',        as: :seach_testimony
+  get         'testimonies/index',           to: 'testimonies#index',        as: :index_testimony
   get         'testimonies/new',              to: 'testimonies#new',            as: :new_testimony
   post        'testimonies',                  to: 'testimonies#create',          as: :create_testimony
   get         'testimonies/:id/edit',         to: 'testimonies#edit',           as: :edit_testimony

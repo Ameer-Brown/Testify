@@ -1,7 +1,7 @@
 class User < ActiveRecord::Base
     has_secure_password
-     has_many :testimonies, dependent: :destroy
-     has_many :comments, dependent: :destroy
+     has_many :testimonies, dependent: :delete_all
+     has_many :comments, dependent: :delete_all
 
 
     def self.confirm(params)
