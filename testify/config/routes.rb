@@ -23,14 +23,12 @@ Rails.application.routes.draw do
 
   #!~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ COMMENT ROUTES ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~!#
   # method    path                      controller#action           alias
-
-  get         'comments/index',           to: 'coments#index',        as: :index_comment
-  get         'comments/new',              to: 'coments#new',            as: :new_comment
-  post        'comments',                  to: 'coments#create',          as: :create_comment
-  get         'comments/:id/edit',         to: 'coments#edit',           as: :edit_comment
-  patch       'comments/:id',              to: 'coments#update',          as: :update_comment
-  get         'comments/:id',              to: 'coments#show',           as: :comment
-  delete      'comments/:id',              to: 'coments#destroy',         as: :destroy_comment
+  get         'comments/new',              to: 'comments#new',            as: :new_comment
+  post        'comments',                  to: 'comments#create',          as: :create_comment
+  get         'comments/:id/edit',         to: 'comments#edit',           as: :edit_comment
+  patch       'comments/:id',              to: 'comments#update',          as: :update_comment
+  get         'comments/:id',              to: 'comments#show',           as: :comment
+  delete      'comments/:id',              to: 'comments#destroy',         as: :destroy_comment
 
   #!~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ SESSION ROUTES ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~!#
     # method    path                      controller#action           alias

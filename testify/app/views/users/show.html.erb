@@ -10,12 +10,12 @@
     </header>
     <!--end User Header-->
 
-    <section id="user_itin">
-      <div class="container">
+    <section>
+      <div id="user_show_cont" class="container">
         <!--beginning of profile section-->
         <div class="row">
-          <div class="col-md-4 text-center">
-            <div class="profile_pic">
+          <div class="col-md-3 text-center">
+            <div id="prof_pic" class="profile_pic">
               <%= image_tag @user.avatar, :class => "img-circle center-block" %>
             </div>
             <p>
@@ -30,12 +30,14 @@
             </p>
             <% allowed = allowed?(@user.id) %>
             <% if allowed %>
-              <%= link_to "Edit", edit_user_path(@user), class: "btn btn-primary" %>
+              <%= link_to "Edit", edit_user_path(@user), class: "btn btn-primary" %><br>
+              <br>
               <%= link_to "Add Testimony", new_testimony_path, class: "btn btn-primary" %>
             <% end %>
           </div>
         <!--end of profile section-->
-
+        <div class="col-md-1">
+        </div>
         <!--beginning of itinerary posts-->
         <div class="col-md-8">
           <div class="row text-center">
@@ -53,7 +55,7 @@
                 <h5><%= t.verse %></h5>
               </div>
               <br>
-              
+
               <% end %>
             <!--********CLOSE TESTIMONY LOOP****************-->
             </div>
