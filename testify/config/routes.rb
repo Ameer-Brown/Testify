@@ -13,7 +13,6 @@ Rails.application.routes.draw do
   #!~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ TESTIMONY ROUTES ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~!#
   # method    path                      controller#action           alias
 
-  #change naming of search#
   get         'testimonies/index',           to: 'testimonies#index',        as: :index_testimony
   get         'testimonies/new',              to: 'testimonies#new',            as: :new_testimony
   post        'testimonies',                  to: 'testimonies#create',          as: :create_testimony
@@ -22,6 +21,14 @@ Rails.application.routes.draw do
   get         'testimonies/:id',              to: 'testimonies#show',           as: :testimony
   delete      'testimonies/:id',              to: 'testimonies#destroy',         as: :destroy_testimony
 
+  #!~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ COMMENT ROUTES ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~!#
+  # method    path                      controller#action           alias
+  get         'comments/new',              to: 'comments#new',            as: :new_comment
+  post        'comments',                  to: 'comments#create',          as: :create_comment
+  get         'comments/:id/edit',         to: 'comments#edit',           as: :edit_comment
+  patch       'comments/:id',              to: 'comments#update',          as: :update_comment
+  get         'comments/:id',              to: 'comments#show',           as: :comment
+  delete      'comments/:id',              to: 'comments#destroy',         as: :destroy_comment
 
   #!~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ SESSION ROUTES ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~!#
     # method    path                      controller#action           alias

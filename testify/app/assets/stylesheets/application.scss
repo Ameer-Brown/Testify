@@ -13,3 +13,99 @@
  *= require_tree .
  *= require_self
  */
+#prof_pic {
+    height: 150px;
+    width: 150px;
+    margin: 50px auto auto;
+    border: 1px solid;
+}
+#user_show_cont {
+    width: 100%;
+    margin-top: 100px
+}
+#forms {
+    .container {
+        margin-top: 100px;
+    }
+}
+
+#tm{
+  width: 450px;
+  margin-top: 100px
+}
+
+.container-full {
+  margin-top: -36px;
+  width: 100%;
+  background-image: url('https://images.unsplash.com/photo-1442115597578-2d0fb2413734?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&s=5e294cec5fda6058de783babf3123491')
+}
+#avi {
+  height: 50px;
+  width: 50px;
+}
+
+  #sform{
+    margin-top: 100px
+  }
+
+#searchpage{
+  margin-left: 400px;
+}
+
+#test_show{
+  margin-left: 400px;
+  margin-top: 100px
+}
+
+.message{
+  color: white;
+  font-family: "Bad Script", cursive !important
+
+}
+.profile_pic img {
+  margin-top: 17%;
+    height: 150px;
+    width: 150px;
+}
+.card-image img{
+  -webkit-filter: brightness(60%);
+}
+
+#title_text{
+  color: #579FE3;
+}
+
+.jumbotron {
+  background-image: url('http://i.giphy.com/SotJCbDWOnnWM.gif');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  height: 100vh;
+  margin-top: 20px;
+  margin-bottom: -20px;
+
+}
+
+.container-index{
+  display: block;
+}
+
+
+.welcome_message{
+  // positioning
+  line-height: 100px;
+  margin-top: 200px;
+
+
+  // font
+  color: rgba(255,255,255,0.8) !important;
+  font-weight: bold;
+  font-size: 6vw;
+  text-align: center;
+  font-family: "Muli", sans-serif !important;
+
+  //border
+  background-color: rgba(87, 159, 227, 0.6);
+  border-radius: 10px;
+  border: 1px solid #579FE3;
+}
