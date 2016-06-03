@@ -1,0 +1,50 @@
+<br>
+<br>
+<br>
+<center>
+    <div class="container">
+        <%= form_tag new_testimony_path, :method => 'get' do %>
+        <p>
+            <%= text_field_tag :search, params[:search] %>
+            <%= submit_tag "Search", :name => nil %>
+        </p>
+        <% end %>
+    </div>
+</center>
+
+<center>
+    <div class="container">
+        <h1>Verses</h2>
+        <div class="row">
+            <%if @testimonies["content-length"] != "0"%>
+            <% @testimonies["results"].each do |t| %>
+            <div class="row">
+                <div class="col s12 m7">
+                    <div class="card col-lg-12">
+                        <div class="card">
+                            <% @title = t["title"] %>
+                            <span class="card-title"><%=@title%></span>
+                        </div>
+                        <div class="card-content">
+                            <%@verse = t["preview"]%>
+                            <%=@verse%>
+                        </div>
+                        <div class="card-action">
+                          <% @user_id = current_user.id %>
+                            <!-- Hidden Form -->
+                            <%= form_for @testimony, url: {action: "create"} do |f| %>
+                            <%= f.hidden_field :title, :value => @title %>
+                            <%= f.hidden_field :verse, :value => @verse %>
+                            <%= f.hidden_field :user_id, :value => @user_id %>
+                            <%= f.submit "Save" %>
+                            <% end %>
+                            <!-- End Hidden Form -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <% end %>
+            <% end %>
+        </div>
+    </div>
+</center>

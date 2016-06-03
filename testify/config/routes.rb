@@ -10,6 +10,19 @@ Rails.application.routes.draw do
   get         'users/:id',              to: 'users#show',           as: :user
   delete      'users/:id',              to: 'users#destroy',         as: :destroy_user
 
+  #!~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ TESTIMONY ROUTES ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~!#
+  # method    path                      controller#action           alias
+
+  #change naming of search#
+  get         'testimonies/index',           to: 'testimonies#index',        as: :index_testimony
+  get         'testimonies/new',              to: 'testimonies#new',            as: :new_testimony
+  post        'testimonies',                  to: 'testimonies#create',          as: :create_testimony
+  get         'testimonies/:id/edit',         to: 'testimonies#edit',           as: :edit_testimony
+  patch       'testimonies/:id',              to: 'testimonies#update',          as: :update_testimony
+  get         'testimonies/:id',              to: 'testimonies#show',           as: :testimony
+  delete      'testimonies/:id',              to: 'testimonies#destroy',         as: :destroy_testimony
+
+
   #!~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ SESSION ROUTES ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~!#
     # method    path                      controller#action           alias
     get         '/login',                 to: 'sessions#new',         as: :login
