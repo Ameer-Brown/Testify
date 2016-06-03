@@ -50,11 +50,11 @@ class TestimoniesController < ApplicationController
         user_id = @testimony.user_id
         if allowed?(user_id)
             @testimony.destroy
-                flash[:notice] = 'Testimony successfully deleted'
-                redirect_to user_path(user_id)
-            else
-                flash[:error] = 'You dont have the proper cridentials to delete this post'
-                redirect_to index_testimony_path
+            flash[:notice] = 'Testimony successfully deleted'
+            redirect_to user_path(user_id)
+        else
+            flash[:error] = 'You dont have the proper cridentials to delete this post'
+            redirect_to index_testimony_path
         end
     end
 end

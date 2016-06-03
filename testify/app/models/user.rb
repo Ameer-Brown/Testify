@@ -1,4 +1,6 @@
 class User < ActiveRecord::Base
+   require 'carrierwave'
+    mount_uploader :avatar, AvatarUploader
     has_secure_password
      has_many :testimonies, dependent: :delete_all
      has_many :comments, dependent: :delete_all
