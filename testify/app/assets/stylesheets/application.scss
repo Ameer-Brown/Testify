@@ -21,12 +21,27 @@
 }
 #user_show_cont {
     width: 100%;
+    margin-top: 100px
 }
 #forms {
     .container {
-        margin-top: 10%;
+        margin-top: 100px;
     }
 }
+
+#tm{
+  width: 450px;
+  margin-top: 100px
+}
+
+#avi {
+  height: 50px;
+  width: 50px;
+}
+
+  #sform{
+    margin-top: 100px
+  }
 
 #searchpage{
   margin-left: 400px;
@@ -35,6 +50,12 @@
 #test_show{
   margin-left: 400px;
   margin-top: 100px
+}
+
+.message{
+  color: white;
+  font-family: "Bad Script", cursive !important
+
 }
 .profile_pic img {
   margin-top: 17%;
@@ -55,7 +76,7 @@
   background-position: center;
   background-size: cover;
   height: 100vh;
-  margin-top: -20px;
+  margin-top: 20px;
   margin-bottom: -20px;
 
 }
@@ -68,7 +89,7 @@
 .welcome_message{
   // positioning
   line-height: 100px;
-  margin-top: 300px;
+  margin-top: 200px;
 
 
   // font
@@ -76,7 +97,7 @@
   font-weight: bold;
   font-size: 6vw;
   text-align: center;
-  font-family: "Muli", sans-serif !important;;
+  font-family: "Bad Script", cursive !important;;
 
   //border
   background-color: rgba(87, 159, 227, 0.6);

@@ -1,13 +1,9 @@
 
 <div class="row">
-  <%= form_for(@testimony, :html => {class: "form-horizontal", role: "form"}) do |f| %>
-  <%= f.file_field :picture %>
-  <%= f.submit "Submit", class: "btn btn-primary" %>
-  <% end %>
         <div class="col s12 m7">
           <div id="test_show"  class="card text-center">
 
-            <div class="card-content">
+            <div class="card-content light-blue lighten-5">
               <h3><%= @testimony.title %></h3><br>
                <h4><%= @testimony.verse %></h4>
             </div>
