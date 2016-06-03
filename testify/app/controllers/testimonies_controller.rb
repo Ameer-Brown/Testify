@@ -3,11 +3,8 @@ class TestimoniesController < ApplicationController
     include HTTParty
     format :json
     def index
-        @testimonies = Testimony.all
+        @testimonies = Testimony.order('created_at DESC')
         render :index
-    end
-
-    def search
     end
 
     def show

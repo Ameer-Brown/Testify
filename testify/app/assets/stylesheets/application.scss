@@ -34,6 +34,11 @@
   margin-top: 100px
 }
 
+.container-full {
+  margin-top: -36px;
+  width: 100%;
+  background-image: url('https://images.unsplash.com/photo-1442115597578-2d0fb2413734?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&s=5e294cec5fda6058de783babf3123491')
+}
 #avi {
   height: 50px;
   width: 50px;
@@ -97,7 +102,7 @@
   font-weight: bold;
   font-size: 6vw;
   text-align: center;
-  font-family: "Bad Script", cursive !important;;
+  font-family: "Muli", sans-serif !important;
 
   //border
   background-color: rgba(87, 159, 227, 0.6);
