@@ -29,14 +29,14 @@
                     <%= link_to "Testify", index_path, class: "navbar-brand" %>
                     <ul class="right">
                         <% if current_user %>
-                        <li><%= link_to " My Timeline", index_testimony_path, class: "naver" %></li>
+                        <li><%= link_to " My Timeline", testimonies_path, class: "naver" %></li>
                         <li><%= link_to "Search Verses", new_testimony_path, class: "naver" %></li>
                         <li><%= link_to "Profile", user_path(current_user), class: "naver" %></li>
                         <li class="naver"><%= link_to "Log Out", logout_path, class: "naver" %></li>
 
                     <% else %>
-                        <li><%= link_to "Sign Up", new_user_path %></li>
-                        <li><%= link_to "Log In", login_path %></li>
+                        <li><%= link_to "Sign Up", new_user_path, class: "naver" %></li>
+                        <li><%= link_to "Log In", login_path, class: "naver" %></li>
                         <% end %>
                     </ul>
 

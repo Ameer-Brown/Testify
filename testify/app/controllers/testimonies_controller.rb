@@ -4,11 +4,13 @@ class TestimoniesController < ApplicationController
     format :json
     def index
         @testimonies = Testimony.order('created_at DESC')
+        @user = User.find_by_id(params[:id])
         render :index
     end
 
     def show
         @testimony = Testimony.find_by_id(params[:id])
+        @comment = Comment.new
         render :show
     end
 
@@ -24,7 +26,7 @@ class TestimoniesController < ApplicationController
     end
 
     def create
-        @testimony = Testimony.new
+        @testimony = Testimony.new(testimony_params)
         @testimony.title = params[:testimony][:title]
         @testimony.verse = params[:testimony][:verse]
         @testimony.user_id = params[:testimony][:user_id]
@@ -37,9 +39,21 @@ class TestimoniesController < ApplicationController
     end
 
     def edit
+      logged_in?
+      @testimony = Testimony.find_by_id(params[:id])
     end
 
     def update
+      if allowed?(@testimony.user_id)
+      if @testimony.update(testimony_params)
+        redirect_to testimony_path
+      else
+        flash[:error] = @testimony.errors.full_messages.join(" , ")
+        render :edit
+      end
+    else
+      redirect_to testimony_path
+      end
     end
 
     def destroy
@@ -54,4 +68,11 @@ class TestimoniesController < ApplicationController
             redirect_to index_testimony_path
         end
     end
+
+    private
+
+    def testimony_params
+    params.require(:testimony).permit(:title, :verse, :user_id, :picture, :video)
+    end
+
 end
