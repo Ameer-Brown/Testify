@@ -1,6 +1,7 @@
 class Testimony < ActiveRecord::Base
   require 'carrierwave'
-   mount_uploader :picture, AvatarUploader
+   mount_uploader :picture, PictureUploader
    belongs_to :user
    has_many :comments, dependent: :destroy
+   accepts_nested_attributes_for :comments, allow_destroy: true
 end

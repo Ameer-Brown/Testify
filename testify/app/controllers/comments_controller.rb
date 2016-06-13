@@ -1,16 +1,19 @@
 class CommentsController < ApplicationController
 
+  before_action :setCurrentTestimony
+  before_action :setCurrentUser
+
   def new
+    @testimony = Testimony.find_by_id(params[:id])
     @comment = Comment.new
     render :new
   end
 
   def create
-    @user = User.find(params[:id])
-   @comment = @user.comments.create(comment_params)
+   @comment = Comment.new(comment_params)
    @comment.user_id = current_user.id
   if @comment.save
-    redirect_to testimony_path
+    redirect_to testimony_path(@testimony.id)
   else
     flash.now[:danger] = "error"
   end
@@ -45,6 +48,15 @@ class CommentsController < ApplicationController
   end
 
   private
+
+  def setCurrentTestimony
+    @testimony = Testimony.find(params[:testimony_id])
+  end
+
+  def setCurrentUser
+    @user = current_user
+  end
+
   def comment_params
   params.require(:comment).permit(:comment)
   end
