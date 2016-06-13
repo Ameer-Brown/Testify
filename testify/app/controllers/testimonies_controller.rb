@@ -2,6 +2,10 @@
 class TestimoniesController < ApplicationController
     include HTTParty
     format :json
+
+    before_action :setCurrentTestimony
+    before_action :setCurrentUser
+
     def index
         @testimonies = Testimony.order('created_at DESC')
         @user = User.find_by_id(params[:id])
@@ -39,7 +43,7 @@ class TestimoniesController < ApplicationController
     end
 
     def edit
-      logged_in?
+      logged_in?(@testimony.user_id)
       @testimony = Testimony.find_by_id(params[:id])
     end
 
@@ -73,6 +77,14 @@ class TestimoniesController < ApplicationController
 
     def testimony_params
     params.require(:testimony).permit(:title, :verse, :user_id, :picture, :video)
+    end
+
+    def setCurrentTestimony
+      @testimony = Testimony.find_by_id(params[:id])
+    end
+
+    def setCurrentUser
+      @user = current_user
     end
 
 end
