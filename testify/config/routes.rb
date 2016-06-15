@@ -12,9 +12,9 @@ Rails.application.routes.draw do
 
 
   resources :testimonies, :except => :destroy do
-    resources :comments
+    resources :comments, :except => :destroy
   end
-
+  delete      'comments/:id',              to: 'comments#destroy',         as: :destroy_comment
   delete      'testimonies/:id',              to: 'testimonies#destroy',         as: :destroy_testimony
 
   # #!~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ TESTIMONY ROUTES ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~!#

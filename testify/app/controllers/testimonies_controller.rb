@@ -13,8 +13,8 @@ class TestimoniesController < ApplicationController
     end
 
     def show
-        @testimony = Testimony.find_by_id(params[:id])
-        @comment = Comment.new
+        @comment = Comment.find_by_id(params[:id])
+          @testimony = Testimony.find_by_id(params[:id])
         render :show
     end
 
@@ -35,7 +35,7 @@ class TestimoniesController < ApplicationController
         @testimony.verse = params[:testimony][:verse]
         @testimony.user_id = params[:testimony][:user_id]
         if @testimony.save
-            redirect_to user_path(@testimony.user_id)
+        redirect_to testimony_path(@testimony.id)
         else
             flash.now[:error] = @testimony.errors.full_messages.join(' , ')
             render :new
@@ -76,7 +76,7 @@ class TestimoniesController < ApplicationController
     private
 
     def testimony_params
-    params.require(:testimony).permit(:title, :verse, :user_id, :picture, :video)
+    params.require(:testimony).permit(:title, :verse, :user_id, :picture, :video, :message)
     end
 
     def setCurrentTestimony

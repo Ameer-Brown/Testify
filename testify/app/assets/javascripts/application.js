@@ -15,3 +15,7 @@
 //= require materialize-sprockets
 //= require turbolinks
 //= require_tree .
+
+$( document ).on('page:load',function(){
+  $(".button-collapse").click().sideNav();
+});

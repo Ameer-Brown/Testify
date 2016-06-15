@@ -12,6 +12,7 @@ class CommentsController < ApplicationController
   def create
    @comment = Comment.new(comment_params)
    @comment.user_id = current_user.id
+   @comment.testimony_id = @testimony.id
   if @comment.save
     redirect_to testimony_path(@testimony.id)
   else
@@ -58,6 +59,6 @@ class CommentsController < ApplicationController
   end
 
   def comment_params
-  params.require(:comment).permit(:comment)
+  params.require(:comment).permit(:comment, :testimony_id)
   end
 end
